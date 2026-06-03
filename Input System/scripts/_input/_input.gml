@@ -148,7 +148,7 @@ function input_key(_type, _id, _keyId, _name, _sprite, _index) constructor {
 			} else {
 				pressed = false;
 				held = false;
-				released = true;
+				released = !reset;
 				reset = true;
 			}
 		} else {
@@ -169,7 +169,7 @@ function input_key(_type, _id, _keyId, _name, _sprite, _index) constructor {
 			} else {
 				pressed = false;
 				held = false;
-				released = true;
+				released = !reset;
 				reset = true;
 			}
 		}
