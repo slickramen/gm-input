@@ -22,14 +22,14 @@ inputs = {
 	up			    : [binding_keyboard.w,				  binding_xbox.dpad_up,		  binding_xbox.lstick_up],
 	down		    : [binding_keyboard.s,				  binding_xbox.dpad_down,		binding_xbox.lstick_down],
 				
-	sprint		  : [binding_keyboard.shift,			binding_xbox.lstick_press],
+	sprint		  	: [binding_keyboard.shift,			binding_xbox.lstick_press],
 
 	shoot		    : [binding_keyboard.lmb,			  binding_xbox.rt],
-	aim		      : [binding_keyboard.rmb,			  binding_xbox.lt],
-	swapWeapon  : [binding_keyboard.space,		  binding_xbox.west],
+	aim		      	: [binding_keyboard.rmb,			  binding_xbox.lt],
+	swapWeapon  	: [binding_keyboard.space,		  binding_xbox.west],
 	
-	clickUI		  : [binding_keyboard.lmb,			  binding_xbox.rstick_press],
-	interact	  : [binding_keyboard.e,			    binding_xbox.south],
+	clickUI		  	: [binding_keyboard.lmb,			  binding_xbox.rstick_press],
+	interact	 	: [binding_keyboard.e,			    binding_xbox.south],
 	close		    : [binding_keyboard.q,				  binding_xbox.east],
 	pause		    : [binding_keyboard.escape, 		binding_xbox.start],
 }
