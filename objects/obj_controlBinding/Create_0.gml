@@ -1,4 +1,12 @@
 /// @desc Setup
+
+#region DELETE - USED FOR DEMO
+global.keyDebug = true;
+global.pressedView = true;
+global.heldView = true;
+global.releasedView = true;
+#endregion
+
 depth = -1000;
 
 #macro DW 640

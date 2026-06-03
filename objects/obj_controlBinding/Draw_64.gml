@@ -1,4 +1,4 @@
-/// @desc
+/// @desc Debug draw controls
 display_set_gui_size(DW, DH);
 
 draw_set_font(fnt_text);
@@ -45,6 +45,18 @@ for (var i = 0; i < array_length(controlListings); i++) {
 	_inc++;
 }
 
+if (!global.keyDebug) exit;
+	
+draw_set_halign(fa_right);
+draw_set_valign(fa_bottom);
+
+var _msg = $"Debug viewer (turn off global.keyDebug to hide)\nPress '1' to toggle pressed view {global.pressedView ? "off" : "on"}\nPress '2' to toggle held view {global.heldView ? "off" : "on"}\nPress '3' to toggle released view {global.releasedView ? "off" : "on"}"
+
+draw_text(DW - 16, DH - 16, _msg);
+
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+
 // Draw pressed inputs
 var _drawX = 8;
 var _drawY = 8;
@@ -53,12 +65,28 @@ var _drawPad = 52;
 for (var i = 0; i < array_length(masterKey.keyList); i++) {
 	if (!masterKey.keyList[i]) continue;
 	
-	if (masterKey.keyList[i].held) {
+	var _inputEnabled = false;
+	
+	_inputEnabled = _inputEnabled || (global.pressedView && masterKey.keyList[i].pressed);
+	_inputEnabled = _inputEnabled || (global.heldView && masterKey.keyList[i].held);
+	_inputEnabled = _inputEnabled || (global.releasedView && masterKey.keyList[i].released);
+	
+	if (_inputEnabled) {
 		// Draw
-		var _sprite = masterKey.keyList[i].sprite;
+		var _keySprite = masterKey.keyList[i].sprite;
 		var _index = masterKey.keyList[i].index;
 		
-		draw_sprite(_sprite, _index, _drawX, _drawY);
+		var _keyCol = c_white;
+		
+		if (global.pressedView && masterKey.keyList[i].pressed) {
+			_keyCol = c_lime;
+		}
+		
+		if (global.releasedView && masterKey.keyList[i].released) {
+			_keyCol = c_red;
+		}
+		
+		draw_sprite_ext(_keySprite, _index, _drawX, _drawY, 1, 1, 0, _keyCol, 1);
 		
 		// Draw key
 		if (masterKey.keyList[i].type == "keyboard") {

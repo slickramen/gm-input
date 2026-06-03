@@ -1,4 +1,10 @@
 /// @desc Control cursor position
+#region DELETE - USED FOR DEMO
+if (keyboard_check_pressed(ord("1"))) global.pressedView 	= !global.pressedView;
+if (keyboard_check_pressed(ord("2"))) global.heldView 		= !global.heldView;
+if (keyboard_check_pressed(ord("3"))) global.releasedView 	= !global.releasedView;
+#endregion
+
 if (useGamepad) {
 	// Increase based on gamepad pos
 	if (array_length(devices) > 0) {
